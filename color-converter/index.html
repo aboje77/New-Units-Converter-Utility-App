@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hex to RGBA Converter</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body
+    class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#102a43] via-[#1f4f75] to-[#0d1b2a] text-white relative overflow-hidden"
+  >
+    <!-- Back Button -->
+    <a
+      href="../index.html"
+      class="absolute top-6 left-6 px-5 py-2 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 hover:scale-110 hover:bg-white/20 transition-all duration-300 fade-in"
+    >
+      ← Back
+    </a>
+
+    <!-- Converter Card -->
+    <div
+      id="converterCard"
+      class="w-[90%] max-w-md bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-8 fade-in transition-all duration-500"
+    >
+      <h1
+        class="text-2xl font-bold text-center mb-6 tracking-wide"
+      >
+        Hex → RGBA Converter
+      </h1>
+
+      <div class="space-y-4">
+        <input
+          id="hexInput"
+          type="text"
+          placeholder="#3498DB"
+          class="w-full p-3 rounded-lg bg-white/20 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white transition"
+        />
+
+        <input
+          id="alphaInput"
+          type="number"
+          step="0.1"
+          min="0"
+          max="1"
+          value="1"
+          placeholder="Alpha (0 - 1)"
+          class="w-full p-3 rounded-lg bg-white/20 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white transition"
+        />
+
+        <button
+          onclick="convertColor()"
+          class="w-full py-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition duration-300 font-semibold tracking-wide"
+        >
+          Convert Color
+        </button>
+
+        <div
+          id="result"
+          class="mt-4 p-4 rounded-lg bg-black/30 text-center font-medium transition-all duration-500"
+        >
+          RGBA result will appear here
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
