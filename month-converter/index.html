@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Month Converter</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="../index.html">UtilityPro</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#cta">Converters</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <section class="card">
+        <h1>Month Converter</h1>
+        <p>Convert between months, days, weeks, and years.</p>
+        <div class="grid">
+          <div>
+            <label for="fromValue">Value</label>
+            <input id="fromValue" type="number" placeholder="Enter value" />
+          </div>
+          <div>
+            <label for="fromUnit">From</label>
+            <select id="fromUnit">
+              <option value="months">Months</option>
+              <option value="days">Days</option>
+              <option value="weeks">Weeks</option>
+              <option value="years">Years</option>
+            </select>
+          </div>
+          <div>
+            <label for="toUnit">To</label>
+            <select id="toUnit">
+              <option value="days">Days</option>
+              <option value="weeks">Weeks</option>
+              <option value="months">Months</option>
+              <option value="years">Years</option>
+            </select>
+          </div>
+          <div class="actions">
+            <button class="swap" id="swapBtn">Swap Units</button>
+            <button class="btn" id="convertBtn">Convert</button>
+          </div>
+        </div>
+        <div class="result" id="result">Result will appear here</div>
+        <div class="note">
+          Assumes averages: 1 month ≈ 30.4375 days, 1 year ≈ 365.25 days, 1 week
+          = 7 days.
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2026 UtilityPro</footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
