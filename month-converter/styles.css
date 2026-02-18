@@ -9,15 +9,16 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem
 .card{width:100%;max-width:680px;background:#1e293b;border-radius:20px;padding:2rem;box-shadow:0 20px 40px rgba(0,0,0,.35)}
 .card h1{font-size:1.6rem;margin-bottom:.75rem;background:linear-gradient(90deg,#38bdf8,#a78bfa);-webkit-background-clip:text;color:transparent}
 .card p{color:#94a3b8;margin-bottom:1.5rem}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:.5rem}
-.field label{font-size:.9rem;color:#cbd5e1;margin-bottom:.35rem;display:block}
-input{width:100%;padding:.9rem;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0b1220;color:#e2e8f0;outline:none}
-input:focus{border-color:#38bdf8;box-shadow:0 0 0 4px rgba(56,189,248,.15)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.5rem}
+label{font-size:.9rem;color:#cbd5e1;margin-bottom:.35rem;display:block}
+input,select{width:100%;padding:.9rem;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0b1220;color:#e2e8f0;outline:none}
+input:focus,select:focus{border-color:#38bdf8;box-shadow:0 0 0 4px rgba(56,189,248,.15)}
 .actions{display:flex;gap:.8rem;margin-top:1rem}
 .btn{flex:1;padding:.9rem 1.2rem;border:none;border-radius:14px;background:linear-gradient(90deg,#38bdf8,#6366f1);color:#fff;font-weight:600;cursor:pointer;transition:.35s}
 .btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(99,102,241,.35)}
+.swap{padding:.9rem 1rem;border:1px solid rgba(255,255,255,.12);background:#0b1220;color:#e2e8f0;border-radius:14px;cursor:pointer;transition:.3s}
+.swap:hover{border-color:#38bdf8;color:#38bdf8}
 .result{margin-top:1.2rem;padding:1rem;border-radius:14px;background:#0b1220;border:1px solid rgba(255,255,255,.08);font-weight:600;color:#e2e8f0}
-.error{margin-top:.6rem;color:#fda4af}
+.note{font-size:.8rem;color:#94a3b8;margin-top:.6rem}
 footer{padding:1.2rem 8%;text-align:center;color:#94a3b8;border-top:1px solid rgba(255,255,255,.08)}
-@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.grid{grid-template-columns:1fr}.actions{flex-direction:column}}

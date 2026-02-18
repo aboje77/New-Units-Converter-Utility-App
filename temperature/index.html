@@ -1,20 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
-    <!-- Temperature Converter -->
-        <section class="converter">
-            <h2>Temperature Converter (Celsius ↔ Fahrenheit)</h2>
-            <input type="number" id="celsius" placeholder="Celsius">
-            <input type="number" id="fahrenheit" placeholder="Fahrenheit">
-            <button id="convert-temp">Convert</button>
-        </section>
-<script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="../index.html">UtilityPro</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#cta">Converters</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <section class="card" role="form" aria-label="Temperature converter">
+        <h1>Temperature Converter</h1>
+        <p>Convert between Celsius, Fahrenheit, and Kelvin in real time.</p>
+
+        <div class="grid">
+          <div class="field">
+            <label for="celsius">Celsius (°C)</label>
+            <input
+              id="celsius"
+              type="number"
+              step="any"
+              inputmode="decimal"
+              placeholder="Enter °C"
+              aria-describedby="error"
+            />
+          </div>
+          <div class="field">
+            <label for="fahrenheit">Fahrenheit (°F)</label>
+            <input
+              id="fahrenheit"
+              type="number"
+              step="any"
+              inputmode="decimal"
+              placeholder="Enter °F"
+              aria-describedby="error"
+            />
+          </div>
+          <div class="field">
+            <label for="kelvin">Kelvin (K)</label>
+            <input
+              id="kelvin"
+              type="number"
+              step="any"
+              inputmode="decimal"
+              placeholder="Enter K"
+              aria-describedby="error"
+            />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="resetBtn" aria-label="Reset all fields">
+            Reset
+          </button>
+        </div>
+
+        <div class="result" id="result" aria-live="polite" role="status"></div>
+        <div class="error" id="error" aria-live="assertive" role="alert"></div>
+      </section>
+    </main>
+
+    <footer>© 2026 UtilityPro</footer>
+    <script src="./script.js"></script>
+  </body>
 </html>
