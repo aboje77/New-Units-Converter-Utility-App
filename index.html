@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>UtilityPro App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background: #0f172a;
+        color: white;
+        overflow-x: hidden;
+      }
+
+      /* NAVBAR */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 8%;
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(12px);
+        background: rgba(15, 23, 42, 0.7);
+        z-index: 1000;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        background: linear-gradient(
+          90deg,
+          #38bdf8,
+          #818cf8
+        );
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #e2e8f0;
+        position: relative;
+        transition: 0.3s;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        left: 0;
+        bottom: -6px;
+        background: #38bdf8;
+        transition: 0.4s ease;
+      }
+
+      .nav-links a:hover {
+        color: #38bdf8;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* HERO */
+      .hero {
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 10%;
+        animation: fadeIn 1.5s ease;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          90deg,
+          #38bdf8,
+          #a78bfa
+        );
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .hero p {
+        max-width: 700px;
+        color: #cbd5e1;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+
+      .hero button {
+        padding: 0.9rem 2.2rem;
+        border: none;
+        border-radius: 40px;
+        background: linear-gradient(
+          90deg,
+          #38bdf8,
+          #6366f1
+        );
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.4s;
+      }
+
+      .hero button:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px
+          rgba(99, 102, 241, 0.4);
+      }
+
+      /* CTA SECTION */
+      .cta-section {
+        padding: 4rem 8%;
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(250px, 1fr)
+        );
+        gap: 2rem;
+      }
+
+      .card {
+        background: #1e293b;
+        padding: 2rem;
+        border-radius: 20px;
+        text-align: center;
+        transition: 0.4s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        width: 150%;
+        height: 150%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          #38bdf8,
+          transparent
+        );
+        top: -120%;
+        left: -120%;
+        transition: 0.6s;
+      }
+
+      .card:hover::before {
+        top: 100%;
+        left: 100%;
+      }
+
+      .card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .card h3 {
+        margin-bottom: 1rem;
+      }
+
+      .card a {
+        display: inline-block;
+        margin-top: 1rem;
+        text-decoration: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 30px;
+        background: #38bdf8;
+        color: #020617;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .card a:hover {
+        background: #0ea5e9;
+      }
+
+      /* FOOTER */
+      footer {
+        padding: 2rem 8%;
+        text-align: center;
+        border-top: 1px solid
+          rgba(255, 255, 255, 0.1);
+        color: #94a3b8;
+        margin-top: 2rem;
+      }
+
+      /* ANIMATION */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* MOBILE MENU */
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+
+      .menu-toggle div {
+        width: 25px;
+        height: 3px;
+        background: white;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          position: absolute;
+          right: 0;
+          top: 70px;
+          background: #020617;
+          flex-direction: column;
+          width: 60%;
+          padding: 2rem;
+          transform: translateX(100%);
+          transition: 0.4s;
+        }
+
+        .nav-active {
+          transform: translateX(0);
+        }
+
+        .menu-toggle {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        Good Morning to all the contributor of this great task that we have been asigned.
+
+        bellow is the breakdown of individual responsibilty:
+
+        Ab (Team lead) is responsible for utility converter that converts temperature ("Celsius to Fahrenheit")
+
+        Ozeal you are responsible for utility converter that converts ("Meters to feet")
+        
+        Abraham you are responsible for utility converter that converts colors ("HEX to RGB")
+
+        Sammy you are responsible for utility converter that converts time ("Hours to Munites")
+
+        Chika you are responsible for utility converter that converts month ("Month to Days")
+
+        We are all expected to create and work in seperate branches, all the branches will be merged when everybody's
+        project is done by the team lead with all your abled help.
+        Thank you all and good luck. -->
+
+    <nav>
+      <div class="logo">UtilityPro</div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#">Home</a></li>
+        <li><a href="#cta">Converters</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="menu-toggle" id="menuToggle">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <h1>
+        All Your Conversions in One Smart App
+      </h1>
+      <p>
+        UtilityPro is a powerful and easy‑to‑use
+        utility application designed to simplify
+        everyday calculations. Convert
+        temperature, colors, meters, time, and
+        months instantly with precision and speed
+        — all from one modern platform.
+      </p>
+      <button
+        onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})"
+      >
+        Explore Tools
+      </button>
+    </section>
+
+    <section class="cta-section" id="cta">
+      <div class="card">
+        <h3>Temperature Converter</h3>
+        <p>
+          Quickly switch between Celsius,
+          Fahrenheit, and Kelvin.
+        </p>
+        <a href="./temperature">Open Tool</a>
+      </div>
+
+      <div class="card">
+        <h3>Color Converter</h3>
+        <p>
+          Convert HEX, RGB, and HSL effortlessly.
+        </p>
+        <a href="./color-converter">Open Tool</a>
+      </div>
+
+      <div class="card">
+        <h3>Meter Converter</h3>
+        <p>
+          Handle metric conversions with accuracy.
+        </p>
+        <a href="./meter-converter">Open Tool</a>
+      </div>
+
+      <div class="card">
+        <h3>Time Converter</h3>
+        <p>
+          Convert seconds, minutes, and hours
+          instantly.
+        </p>
+        <a href="./time-converter">Open Tool</a>
+      </div>
+
+      <div class="card">
+        <h3>Month Converter</h3>
+        <p>
+          Easily transform months into days or
+          weeks.
+        </p>
+        <a href="./month-converter">Open Tool</a>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 UtilityPro. Built for speed,
+      precision, and productivity.
+    </footer>
+
+    <script>
+      const toggle =
+        document.getElementById("menuToggle");
+      const nav =
+        document.getElementById("navLinks");
+
+      toggle.addEventListener("click", () => {
+        nav.classList.toggle("nav-active");
+      });
+    </script>
+  </body>
+</html>
